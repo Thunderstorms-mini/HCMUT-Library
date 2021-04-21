@@ -5,6 +5,7 @@ Chào mừng đến với thư viện tài liệu của cộng đồng Among Ú
 Để thuận tiện cho việc sắp xếp tài liệu, hãy bấm vào nút "Hello" phía tay trái để hiện cây thư mục của môn học.
    * "Subject" : Chứa các file tài liệu theo đề cương môn học của khoa Điện - Điện tử và khoa khác (nếu có).
    * "LaTeX"   : Chứa các file mẫu báo cáo, luận văn, slide được viết bằng LaTeX.
+   * "English" : Chứa các tài liệu anh văn cơ bản, TOEIC, IELTS.
    * "Music"   : Chứa các file nhạc Hi-Res.
    * "Other"   : Chứa các file khác.
    
