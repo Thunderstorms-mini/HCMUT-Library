@@ -1,0 +1,396 @@
+\documentclass[14pt, a4paper]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{color}
+\usepackage[left=3.00cm, right=1.50cm, top=2.00cm, bottom=2.00cm]{geometry}
+\renewcommand\thesection{\Roman{section}}
+
+\title{Bài soạn Vật lý Bán dẫn}
+\author{PHÚC LÂM HỒNG}
+\date{March 2021}
+
+\begin{document}
+   \begin{flushleft}
+      Đại học Bách khoa - Đại học quốc gia Tp.HCM.\\
+      Khoa Điện - Điện tử - Bộ môn Điện tử.\\
+      Biên soạn: Lâm Hồng Phúc - K20 (dựa trên hướng dẫn ôn tập của GV Hồ Trung Mỹ - HK192).\\
+      Edited by $L^{A}T_{E}X$ - 04/2021.
+   \end{flushleft}
+
+   \begin{center}
+       \large
+       \textbf{ĐỀ CƯƠNG ÔN TẬP KIỂM TRA GIỮA KÌ- PHẦN LÝ THUYẾT}\\
+       Môn học: \textbf{Vật lý bán dẫn (EE1003)} - HK 202
+   \end{center}
+    
+   \begin{flushleft}
+      \underline{Chú ý}:\\
+         \begin{itemize}
+             \item Đề kiểm tra trắc nghiệm gồm 25 câu với thời gian làm bài là 40 phút.
+             \item Đề kiểm tra \underline{\textbf{không sử dụng tài liệu}} và \underline{\textbf{câu nào trả lời sai sẽ bị trừ 0.2 điểm}} (không trừ nếu không đánh dấu).
+             \item Nội dung: chương 1, 2 và 3.
+         \end{itemize}
+   \end{flushleft}
+   
+   \section{\underline{Chương 1:} Giới thiệu.}
+   
+   \begin{flushleft}
+      \underline{Câu 1:} Các khối xây dựng cơ bản của dụng cụ bán dẫn.\\
+      \begin{center}
+            \begin{tabular}{|c|l|l|}
+                \hline STT&Khối xây dựng cơ bản&Ứng dụng trong các dụng cụ bán dẫn\\
+                \hline 1&Chuyển tiếp kim loại-bán dẫn (M-S)&Diode Schottky, Transistor Schottky, MESFET\\
+                \hline 2&Chuyển tiếp P-N&Các loại diode bán dẫn (chỉnh lưu, ổn áp, LED, varicap,...),\\&&
+                BJT, JFET\\
+                \hline 3&Chuyển tiếp dị thể&Các transistor đặc biệt (TD: HBT) và các dụng cụ quang\\&& ĐT có hiệu năng cao\\
+                \hline 4&Cấu trúc MOS&MOSFET, phần tử nhớ 1 bit của DRAM, cảm biến ảnh\\&& CCD và CMOS\\ 
+                \hline 
+            \end{tabular}
+        \end{center}
+        \underline{Chú ý:} Ta chỉ chú ý đến thành phần chính tạo nên dụng cụ bán dẫn, mặc dù các chuyển tiếp khác vẫn có:
+        \begin{itemize}
+            \item Chuyển tiếp M-S có 2 dạng:
+                \begin{itemize}
+                    \item \textbf{Chuyển tiếp chỉnh lưu:} làm thành phần chính chế tạo dụng cụ bán dẫn (trong bản trên).
+                    \item \textbf{Tiếp xúc Ohm:} Để tạo kết nối các chân ra của dụng cụ bán dẫn.
+                \end{itemize}
+            \item Chuyển tiếp P-N ở miền S (Source) và D (Drain) của MOSFET.
+        \end{itemize}
+        \underline{Câu 2:} Các xu hướng công nghệ vi mạch (IC) bán dẫn:\\
+        - Gồm 3 xu hướng chính: tăng mật độ thích hợp, tốc độ vi xử lý cao và tiêu thụ năng lượng thấp (công suất thấp). Ngoài ra trong các sản phẩm dùng dụng cụ bán dẫn càng tăng thêm lượng bộ nhớ không bốc hơi.
+   \end{flushleft}
+   
+   \section{\underline{Chương 2:} Dải năng lượng và nồng độ hạt dẫn ở điều kiện cân bằng.}
+   
+   \begin{flushleft}
+      \underline{Câu 1:} Phân loại vật liệu thoe điện dẫn suất (hay điện trở suất) và khe năng lượng.\\
+        \begin{center}
+            \begin{tabular}{|l|l|l|}
+                \hline Vật liệu&Theo điện dẫn suất&Theo khe năng lượng\\
+                \hline Cách điện&$10^{-18}$\textdiv$10^{-8}$&khe năng lượng > 4ev\\
+                \hline Bán dẫn&$10^{-8}$\textdiv$10^{3}$&Khe năng lượng < 4ev\\
+                \hline Dẫn điện&$10^{3}$\textdiv$10^{8}$&Không có khe năng lượng\\
+                \hline
+            \end{tabular}
+      \end{center}
+      \underline{Câu 2:} Sự hình thành dải năng lượng. Khái niệm dải dẫn, dải hóa trị và dải cấm. Khe năng lượng $E_G$.\\
+      - Sự phủ lấp hay tách ra của những mức năng lượng cho phép tạo thành dãy năng lượng.\\
+      - Dãy dẫn là dãy có mức năng lượng cao nhất, vùng mà điện tử sẽ linh động và là các điện tử dẫn $\mapsto$ Chất có khả năng dẫn điện khi có điện tử tồn tại trên vùng này.(tập trung lỗ trống)\\
+      - Dãy hóa trị là vùng có mức năng lượng thấp theo thang năng lượng, vùng mà điện tử bị liên kết mạnh, điện tử không linh động. (tập trung electron tự do)\\
+      - Dãy cấm là dãy năng lượng mà ở giữa những dãy năng lượng đã được định nghĩa, vùng mà điện tử không thể tồn tại.\\
+      - Hiệu số $E_{G}=E_{e}-E_{v}$ là năng lượng cần để phá vỡ liên kết trong bán dẫn.\\
+      $ $ \\
+      \underline{Câu 3:} Phân biệt bán dẫn nguyên tố và bán dẫn hỗn hợp.\\
+      - Bán dẫn chỉ có 1 nguyên tố gọi là bán dẫn nguyên tố.\\
+      - Bán dẫn từ 2 nguyên tố trở lên được gọi là bán dẫn hỗn hợp.\\
+      $ $\\
+      \underline{Câu 4:} Chất bán dẫn dùng trong dụng cụ bán dẫn thường dùng loại bán dẫn có cấu trúc tinh tinh thể gì?\\
+      - Vật liệu bán dẫn thường có cấu trúc đơn tinh thể.\\
+      - Các chất Si, Ge trong mạng $R_{3}$ là cấu trúc mạng tinh thể kim cương.\\
+      $ $\\
+      \underline{Câu 5:} Chất bán dẫn hỗn hợp thường dùng cho các dụng cụ gì?\\
+      - Bán dẫn hỗn hợp được ứng dụng trong quang điện tử và chuyển mạch tốc độ cao.\\
+      \hspace{0.5cm}\underline{Vd:} GaAs làm diốt phát quang; SiC làm diốt phát quang xanh (LED); InAs,InP,... làm LED và diốt laser.\\
+      $ $\\
+      \underline{Câu 6:} Các nguyên tố bán dẫn thường nằm ở đâu trong bảng tuần hoàn?\\
+      - Bán dẫn nguyên tố gồm:\\
+      \begin{itemize}
+          \item Nhóm IIIA: B, Ga, In, Al,...
+          \item Nhóm IVA : Sv, Ge, Sn, Pb,...
+          \item Nhóm VA  : P, As, Sb,...
+      \end{itemize}      
+      \underline{Câu 7:} Thế nào gọi là bán dẫn trực tiếp, bán dẫn gián tiếp?  Cho ví dụ.\\
+      - Bán dẫn trực tiếp là bán dẫn không cần sự thay đổi moment để chuyển từ dãy hóa trị sang dãy dẫn . \underline{Vd:} GaAS,...\\
+      - Bán dẫn gián tiếp là bán dẫn cần có sự thay đổi moment để chuyển từ dãy hóa trị sang dãy dẫn. \underline{Vd:} Si,...\\
+      $ $\\
+      \underline{Câu 8:} Chất bán dẫn có các liên kết nào sau đây: kim loại, ion, đồng hóa trị, van der Waals?\\
+      - Bán dẫn nguyên tố có liên kết đồng hóa trị.\\
+      - Bán dẫn hỗn hợp có liên kết đồng hóa trị và liên kết ion.\\
+      $ $\\
+      \underline{Câu 9:} Bán dẫn nội tại và bán dẫn có pha tạp chất.\\
+      - Bán dẫn nội tại (bán dẫn thuần) là loại bán dẫn có nồng độ tạp chất khá nhỏ.\\
+      - Bán dẫn tạp chấp (bán dẫn ngoại lai) là loại bán dẫn có nồng độ tạp chất rất lớn.\\
+      $ $\\
+      \underline{Câu 10:} Đặc tính của phân bố Fermi-Dirac. Khi nhiệt độ tăng thì đặc tính này sẽ thay đổi như thế nào?\\
+      - Xác xuất mà 1 điện tử chiếm 1 trạng thái điện tử với năng lượng E được gọi là phân bố Fermi-Dirac.
+      \begin{center}
+          $0 \leq F(E)= \frac{1}{1+e \frac{E-E_{F}}{KT}} \leq 1$
+      \end{center}
+      - Khi giảm T thì thế Fermi giảm $\to$ hạt dẫn phân bố tập trung cao.\\
+      - Khi tăng T thì thế Fermi tăng $\to$ hạt dẫn phân bố hỗn loạn.\\
+      - Khi $E-E_{F}$ tăng thì $F(E)$ giảm.\\
+      $ $\\
+      \underline{Câu 11:} Mức (năng lượng) Fermi $E_{F}$ trong chất rắn: $E_{F}$ nằm ở đâu trong chất dẫn điện, bán dẫn và cách điện.\\
+      \begin{center}
+        \begin{figure}[htp]
+            \begin{center}
+                \includegraphics[scale=.3]{muc_F(E).png}
+            \end{center}
+        \caption{Mức Fermi của chất dẫn điện, bán dẫn và cách điện.}
+        \label{refhinh1}
+        \end{figure}
+      \end{center}
+      $ $\\
+      \underline{Câu 12:} Phân bố Botlzmann: nồng độ chất điện tử \textbf{n} và nồng độ lỗ \textbf{p} ở cân bằng nhiệt.\\
+      \begin{itemize}
+          \item $n \approx N_{C}. exp(-E(E_{C}-E_{F})/kT)$ với $E_{C}-E{F}\geq2kT$\\
+          \item $p \approx N_{V}.exp(-(E_{F}-E_{V}/kT$ với $E_{F}-E{V}\geq2kT$\\
+      \end{itemize}
+      \underline{Câu 13:} Nồng độ hạt dẫn nội tại \textbf{$n_{i}$}. Khi nhiệt độ thay đổi thì $n_{i}$ thay đổi như thế nào? \\
+      - Nồng độ hạt dẫn nội tại $n_{i}$: $n_{i} = \sqrt{N_{C}.N_{V}}.exp(-\frac{E_{g}}{2kT})$.\\
+      - Khi nhiệt độ tăng thì $N_{i}$ tăng.\\
+      - Khi nhiệt độ là $0^{o}K$ thì $N_{i}$ không tồn tại. (?)\\
+      $ $\\
+      \underline{Câu 14:} Thế nào là chất donor, acceptor? Trong bảng phân loại tuần hoàn, nếu ta dùng bán dẫn thuộc nhóm IV thì các chất donor và acceptor thuộc nhóm nào? Các mức năng lượng donor $E_{D}$ và acceptor $E_{A}$ nằm ở đâu trong giản đồ năng lượng của chất bán dẫn?\\
+      - Donor là bán dẫn tạp chất cho điện tử.\\
+      - Acceptor là bán dẫn cho lỗ trống.\\
+      - Giả sử dùng bán dẫn thuộc nhóm VI thì donor thuộc nhóm VA và acceptor thuộc nhóm IIIA trong bảng tuần hoàn.\\
+      \begin{center}
+        \begin{figure}[htp]
+            \begin{center}
+                \includegraphics[scale=.5]{donor_acceptor.png}
+            \end{center}
+        \caption{Mức năng lượng donor $E_{D}$ và acceptor $E_{A}$.}
+        \label{refhinh1}
+        \end{figure}
+      \end{center}
+      - Vậy: Bán dẫn loại P có đa số lỗ +q, thiểu số hạt -q.\\
+      \hspace{1cm}Bán dẫn loại N có đa số hạt -q, thiểu số lỗ +q.\\
+      $ $\\
+      \underline{Câu 15:} Sự hình thành bán dẫn loại N, loại P. Hạt dẫn đa số và hạt dẫn thiểu số. \textcolor{blue}{Định luật tác động số đông} của chất bán dẫn (nội tại và có pha tạp chất) ở cân bằng nhiệt.\\
+      - Sự hình thành:
+      \begin{itemize}
+          \item \underline{\textbf{Bán dẫn loại P}}: Để tạo thành bán dẫn loại P, tạp chất, thường là Ga (Gali), Indi hoặc Bo được bổ sung vào tinh thể Si hoặc Ge. Các tạp chất này có hóa trị 3, nghĩa là có 3 điện tử ở lớp ngoài cùng. Khi Ga hoặc B, Indi được đưa vào tinh thể Si hoặc Ge (hóa trị 4), sẽ thiếu một điện tử hóa trị, tạo thành lỗ và có điện tích dương, tạp chất tạo lỗ được gọi là\textbf{ tạp chất nhận.}
+          \item \underline{\textbf{Bán dẫn loại N}}: Để tạo thành bán dẫn loại N, tạp chất, thường là Asen, hoặc Antimony được booe rsung vào tinh thể Si hoặc Ge, các tạp chất này có hóa trị 5, khi đưa vào sẽ thừa một điện tử tự do, điện tử này tạo ra điện tích âm trong nguyên tử. do đó được gọi là\textbf{ tạp chất cho}.
+      \end{itemize}
+      \begin{center}
+        \begin{figure}[htp]
+            \begin{center}
+                \includegraphics[scale=.4]{p-n.PNG}
+            \end{center}
+        \caption{Sự hình thành bán dẫn loại P, loại N.}
+        \label{refhinh1}
+        \end{figure}
+      \end{center}
+      - Định luật tác động số đông: $n.p = n_{i}^{2}$.\\
+      \newpage
+      \underline{Câu 16:} Năng lượng ion hóa của tạp chất donor và acceptor là gì?\\
+      - Năng lượng ion hóa (ở nhiệt độ phòng, tất cả các tạp chất đều bị ion hóa):\\
+      \begin{itemize}
+          \item Với donor:    $E_{C}-E_{D}$
+          \item Với acceptor: $E_{A}-E{V}$
+      \end{itemize}
+      \underline{Câu 17:} Vị trí mức Fermi $E_{F}$ thay đổi như thế nào trong giản đồ giải năng lượng khi tăng nồng độ tạp chất trong bán dẫn loại N và loại P? Bán dẫn suy biến là bán dẫn gì?\\
+      \begin{center}
+        \begin{figure}[htp]
+            \begin{center}
+                \includegraphics[scale=.5]{muc Fermi PN.png}
+            \end{center}
+        \caption{Vị trí của mức Fermi trong giản đồ năng lượng.}
+        \label{refhinh1}
+        \end{figure}
+      \end{center}
+      - Thế Fermi $\varphi_{F}=\frac{E_{i}-E{F}}{q}$\\
+      - Khi pha rất nhiều tạp chất, các nồng độ tạp chất cao hơn các mật độ trạng thái hiệu dụng trong dải hóa trị và dải dẫn. Trong trường hợp như vậy ta có bán dẫn suy bíến.\\ 
+      $ $\\
+   \end{flushleft}
+   \begin{flushleft}
+      \underline{Câu 18:} Nồng độ hạt dẫn trong bán dẫn loại N ở cân bằng nhiệt (nếu $N_{D} \gg n_{i}$) $n_{n} \approx N_{D}$ và $p_{n}=$?      
+      \begin{itemize}
+          \item Nồng độ hạt dẫn: $n=\frac{1}{2} [N_{D}-N_{A}+ \sqrt{(N_{D}-N_{A})^2+4n_{i}^{2}}]$
+          \item Nồng độ lỗ trống: $p_{n}=\frac{n_{i}^2}{n_{n}}$
+      \end{itemize}
+      \underline{Câu 19:} Nồng độ hạt dẫn trong bán dẫn loại P ở cân bằng nhiệt (nếu $N_{A} \gg n_{i}$) $p_{p} \approx N_{A}$ và $n_{p}=$?
+      \begin{itemize}
+          \item Nồng độ lỗ trống: $p_{p}= \frac{1}{2} [N_{A}-N_{D}+ \sqrt{(N_{D}-N_{A})^2+4n_{i}^2} ]$
+          \item Nồng độ hạt dẫn: $n_{P}=\frac{n_{i}^2}{p_{p}}$
+      \end{itemize}
+      \underline{Câu 20:} Mức năng lượng Fermi bị ảnh hưởng như thế nào bởi nồng độ tạp chất và nhiệt độ? Công thức tính với bán dẫn N và bán dẫn P chỉ pha 1 loại tạp chất: $E_{F}-E{i}=$?\\
+      - Khi tăng nồng độ Donor (bán dẫn loại N) thì $\varphi_{F}$ âm hơn.\\
+      - Khi tăng nồng độ acceptor (bán dẫn loại P) thì $\varphi_{F}$ dương hơn.\\
+      - Khi nhiệt độ tăng thì mức năng lượng Fermi giảm.\\
+      $ $\\
+      \underline{Câu 21:} Bán dẫn bổ chính (bán dẫn bù) ở cân bằng nhiệt \textbf{(xét nồng độ tạp chất >>$n_{i}$).}\\
+      \begin{itemize}
+          \item \textbf{Với bán dẫn loại N} ($N_{D}>N_{A}$), ta có nồng độ hạt dẫn đa số $N_{n}$ và nồng độ hạt dẫn thiểu số $P_{n}$:\\
+          \begin{center}
+              \begin{itemize}
+                 \item $n_{n}=\frac{1}{2}.[N_{D}-N_{A}+\sqrt{(N_{D}-N_{A})^2+4n_{i}^2} ]$ và $p_{n}=\frac{n_{i}^2}{n_{n}}$;\\
+                 \item Nếu $N_{D}-N_{A}=n{i} \Rightarrow n_{n}\approx N_{D}-N_{A}$ và $p_{n} \approx \frac{n_{i}^2}{N_{D}-N{A}}$
+              \end{itemize}
+          \end{center}
+          \item \textbf{Với bán dẫn loại P} ($N_{A}>N_{D}$), ta có nồng độ hạt dẫn đa số $P_{p}$ và nồng độ hạt dẫn thiểu số $N_{p}$:\\
+          \begin{center}
+              \begin{itemize}
+                  \item $p_{p}=\frac{1}{2}.[N_{A}-N_{D}+\sqrt{(N_{A}-N_{D})^2+4n_{i}^2} ]$ và $n_{p}=\frac{n_{i}^2}{p_{p}}$;\\
+                  \item Nếu $N_{A}-N_{D}=n{i} \Rightarrow p_{p}\approx N_{A}-N_{D}$ và $n_{p} \approx \frac{n_{i}^2}{N_{A}-N{D}}$
+              \end{itemize}
+          \end{center}
+      \end{itemize}
+      \newpage
+   \end{flushleft}
+   
+   \begin{flushleft}
+   \section{\underline{Chương 3:} Các hiện tượng vận chuyển hạt dẫn.}
+   \underline{Câu 1}: Chuyển động trôi và khuếch tán trong bán dẫn. Vân tốc trôi của hạt dẫn. Quan hệ giữa độ linh động của điện tử và độ linh động của lỗ trong cùng chất bán dẫn?\\
+      \begin{center}
+        \begin{figure}[htp]
+            \begin{center}
+                \includegraphics[scale=.4]{linhdong.PNG}
+            \end{center}
+        \caption{Đường đi của điện tử trong bán dẫn}
+
+        \label{refhinh1}
+        \end{figure}
+      \end{center}
+    - (a) Chuyển động nhiệt ngẫu nhiên: Sự chuyển dịch của điện tử là 0 trong một thời gian dài.\\  
+    - (b) Chuyển động kết hợp nhiệt và điện trường E: Sự dịch chuyển khác 0
+    \begin{itemize}
+        \item Điện tử $\to$ ngược chiều $\overrightarrow{E}$
+        \item Lỗ trống $\to$ cùng chiều $\overrightarrow{E}$
+    \end{itemize}
+    - Độ linh động: mô tả cách chuyển động của 1 điện tử bị ảnh hưởng bởi điện trường áp đặt bởi $\overrightarrow{E}$\\
+    - Độ linh động của điện tử cao hơn của lỗ trống (sự di chuyển của lỗ trống phụ thuộc vào sự di chuyển của các electron).\\
+    $ $\\
+    \underline{Câu 2:} Công thức của vận tốc trôi chỉ đúng trong trường hợp nào?\\
+    - Hạt điện tích: $v_{n}=-\mu_{n}.\xi$\\
+    - Lỗ trống:    $v_{p}=+\mu_{p}.\xi$\\
+    - Không phụ thuộc vào nhiệt độ, áp suất của môi trường bên ngoài.\\
+    $ $\\
+    \underline{Câu 3:} Các cơ chế tán xạ nào ảnh hưởng đến độ linh động của hạt dẫn và sự phụ thuộc vào nhiệt độ của các cơ chế này như thế nào?\\
+    - Tán xạ
+    \begin{itemize}
+        \item Tán xạ mạng phụ thuộc nhiệt độ
+        \begin{itemize}
+            \item Nhiệt độ tăng $\to$ độ linh động giảm $\to$ tán xạ nhiều.
+            \item Nhiệt độ giảm $\to$ độ linh động tăng $\to$ tán xạ ít.
+        \end{itemize}
+        \item tán xạ tap chất không phụ thuộc vào nhiệt độ.
+    \end{itemize}
+    $ $\\
+    \underline{Câu 4:}  Quan hệ Einstein: cho thấy sự tương quan của hiện tượng khuếch tán và hiện tượng trôi của hạt dẫn.\\
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline Hệ số khuếch tán điện tủ&Hệ số khuếch tán lỗ&Dạng tổng quát\\
+            \hline $D_{n}= \left(\frac{kT}{q}\mu_{n} \right)$&$D_{p}= \left(\frac{kT}{q}\mu_{p} \right)$&$\frac{D}{\mu}=V_{T}$\\
+            \hline
+        \end{tabular}
+    \end{center}
+    Với $V_{T}$ là điện áp  nhiệt và $V_{T}=\frac{kT}{q}$
+    $ $\\
+    \underline{Câu 5:} Định nghĩa cùa thế Fermi. Làm sao xác định được loại bán dẫn dựa trên thế Fermi?\\
+    \begin{center}
+        (Đọc thêm trong slide bài giảng - bổ sung sau)
+    \end{center}
+    \newpage
+    \underline{Câu 6:}  Độ dẫn điện $\sigma$ của bán dẫn (giả sử bán dẫn nếu có pha tạp chất thì được phân bố đều):\\
+    - $\sigma = \sigma_{n}+\sigma_{p} = pn\mu_{n}+pn\mu{p} = \frac{1}{\rho}$ với độ dẫn điện do điện tử $\sigma_{n}$ ($=pn\mu_{n}$) và độ dẫn điện do lỗ $\sigma_{p}$ ($=pn\mu_{p}$) 
+    $ $\\
+    \underline{Câu 7:} Ảnh hưởng của nồng độ tạp chất lên điện trở suất của bán dẫn như thế nào?\\
+    - Nồng độ tạp chất càng cao,$\rho$ càng giảm.
+    \begin{center}
+        \begin{tabular}{|c|}
+             \hline $\rho = \frac{1}{\sigma} = \frac{1}{q(n\mu_{n}+p\mu_{p}})$\\
+             \hline
+        \end{tabular}
+    \end{center}
+    $ $\\
+    \underline{Câu 8:} Sự sinh cặp điện tử-lỗ trong bán dẫn thường gặp do các tác động nào?\\
+    \begin{center}
+        \begin{figure}[htp]
+            \begin{center}
+                \includegraphics[scale=.5]{sinh.PNG}
+            \end{center}
+        \caption{Các quá trình sinh.}
+        \label{refhinh1}
+        \end{figure}
+    \end{center}
+    $ $\\
+    \underline{Câu 9:} Tái hợp có bức xạ và tái hợp không có bức xạ thường gặp trong các loại bán dẫn nào? Trong dụng cụ quang điện tử người ta thường dùng loại bán dẫn có tái hợp nào?\\
+    - Bất cứ khi nào điều kiện cân bằng nhiệt bị ảnh hưởng(nghĩa là $pn$ khác $n_{i}^2$), sẽ tồn tại các quá trình hồi phục về trạng thái cân bằng nhiệt (nghĩa là $pn=n_{i}^2$). Trong trường hợp bơm các hạt dẫn thừa, cơ chế hồi phục về cân bằng nhiệt là tái hợp các hạt dẫn thiểu số được bơm vào các hạt dẫn đa số. Tùy theo bản chất của quá trình tái hợp, năng lượng giải phóng từ quá trình tái hợp có thể bứt xạ ra photon hoặc tiêu tán nhiệt trong mạng tinh thể. Khi có phát xạ photon, người ta gọi đó là \textbf{tái hợp có bức xạ}, ngược lại thì gọi là \textbf{tái hợp không có bức xạ}.\\
+    - Trong dụng cụ bán dẫn người ta thường dùng bán dẫn có tái hợp .............................................................\\
+    $ $\\
+    \underline{Câu 10:} Tái hợp trực tiếp thường xảy ra với bán dẫn loại nào? Thí dụ: Si và GaAs thì loại bán dẫn nào có xảy ra tái hợp trực tiếp?\\
+    -\\
+    $ $\\
+    $ $\\
+    \underline{Câu 11:} Xét bán dẫn trực tiếp loại N, với bơm mức thấp thì công thức tính tốc độ tái hợp của nó là gì?\\
+    - Đối với bơm mức thấp p, $p_{no}\ll n_{no}$, công thức tính tốc độ tái hợp là:
+    \begin{center}
+        \begin{tabular}{|c|}
+             \hline $U\cong \beta n_{no}\Delta p = \frac{p_{n}-p_{no}}{\frac{1}{\beta n_{no}}}$\\
+             \hline
+        \end{tabular}
+    \end{center}
+    $ $\\
+    \underline{Câu 12:} Tái hợp gián tiếp?\\
+    \begin{center}
+        (Đọc thêm trong slide bài giảng - bổ sung sau)
+    \end{center}
+    \newpage
+    \underline{Câu 13:} Tái hợp nào có ảnh hưởng đến 3 hạt dẫn?\\
+    - Tái hợp ảnh hưởng đế 3 hạt dẫn là \textbf{tái hợp AUGER}\\
+    - Sự tái hợp cặp điện tử - lỗ trống truyền năng lượng đến hạt thứ 3 (điện tử hay lỗ).\\
+    $ $\\
+    \underline{Câu 14:} Ánh sáng phải có năng lượng bao nhiêu mới có thể tạo nên cặp điện tử-lỗ khi ta chiếu ánh sáng vào bán dẫn có khe năng lượng là $E_{g}$? (vẽ hình tay - viết tay)\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    \underline{Câu 15:} Khi có hiện tượng tái hợp trong bán dẫn trực tiếp có khe năng lượng là $E_{g}$ thì ánh sáng sinh ra có bước sóng bao nhiêu? (viết tay)\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    $ $\\
+    \underline{Câu 16:} Ý nghĩa của phương trình liên tục?\\ 
+    - Nêu lên mối liên hệ giữa các hiệu ứng trôi, khuếch tán, tái hợp.\\
+    $ $\\
+    \underline{Câu 17:} Các phương trình liên tục của điện tử và lỗ:\\
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+             \hline &Phương trình liên tục&Mật độ dòng điện\\
+             \hline Điện tử& $\frac{\partial_{n}}{\partial_{t}}=\frac{1}{q}.\frac{dj_{n}}{dx}+G-R$& $j_{n}=q\mu_{n}nE+qD_{n}.\frac{dn}{dx}$\\
+             \hline Lỗ& $\frac{\partial_{p}}{\partial_{t}}=-\frac{1}{q}.\frac{dj_{p}}{dx}+G-R$& $j_{p}=q\mu_{p}nE-qD_{p}.\frac{dp}{dx}$\\
+             \hline
+        \end{tabular}
+    \end{center}
+    $ $\\
+    $ $\\
+    \begin{center}
+        \textbf{HẾT}
+    \end{center}
+   \end{flushleft}
+\end{document}
